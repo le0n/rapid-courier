@@ -2,9 +2,7 @@ import './App.css';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-
-import {useAuthState} from 'react-firebase-hooks/auth';
-import {useCollectionData} from 'react-firebase-hooks/firestore';
+import React, {component} from 'react';
 
 firebase.initializeApp({
   apiKey: "AIzaSyCXqvu1j3NQ4J303SKtBAcXZ_iFz5LhUdc",
@@ -24,9 +22,7 @@ const firestore = firebase.firestore();
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>this is a test website</h1>
-      </header>
+      <h1>hi i'm a react app</h1>
     </div>
   )
 }
