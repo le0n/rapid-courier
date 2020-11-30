@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import React from 'react';
-import { Router } from "@Reach/router";
+import SignIn from './Components/SignIn';
 
 const config = {
   apiKey: "AIzaSyCXqvu1j3NQ4J303SKtBAcXZ_iFz5LhUdc",
@@ -27,8 +27,7 @@ const firestore = firebase.firestore();
 function App() {
   return (
     <div className="App">
-      <h1>hi i'm a react app11</h1>
-      <Title/>
+      <SignIn/>
     </div>
     
   )
