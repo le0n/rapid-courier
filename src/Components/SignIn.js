@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import '../index.css';
 
-
+//SignIn component handles the sign in screen of the webapp
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
