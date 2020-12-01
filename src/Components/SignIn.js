@@ -24,12 +24,11 @@ faker.locale = 'en_AU';
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
     
     //when the sign in button is clicked
     const signInHandler = (event, email, password) => {
         event.preventDefault();
-        firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
             window.location.href= '/jobs';
         })
         .catch((error) => {
@@ -64,31 +63,32 @@ const SignIn = () => {
     
     return (
         //logic for incorrect log in details not implemented
-        <div className='main-container'>
-            <h1 className='rapid-courier-title'>{'>'} Rapid Courier</h1>
+        <div className='signInbox'>
+            <h1 className='title'>{'>'} Rapid Courier</h1>
             <div className='sign-in-border'>
-                <form>
-                    <input type='email' className='email-input' 
+                <form className='signInForm'>
+                    <input type='email' className='input' 
                     name='userEmail' value={email} placeholder='Username'
                     id='userEmail'
                     onChange={(event) => onChangeHandler(event)} />
 
-                    <input type='password' className='password-input' 
+                    <input type='password' className='input' 
                     name='userPassword' value={password} placeholder='Password'
                     id='userPassword'
                     onChange={(event) => onChangeHandler(event)} />
 
-                    <button className='sign-in-button' 
-                    onClick={(event) => {signInHandler(event, email, password)}}>
-                        SIGN IN</button>
+                    <div className='sign-in-button-container'>
+                        <button className='sign-in-button' 
+                        onClick={(event) => {signInHandler(event, email, password)}}>
+                            SIGN IN</button>
+                    </div>
 
-                    <button className='sign-out-button'
-                    onClick={(event) => {firebase.auth().signOut().then(alert('signed out'))}}>SIGN OUT</button>
-
-                    <button onClick={(event) => {fakeData(event)}}>populate jobs</button>
                 </form>
             </div>
         </div>
     );
 };
+//<button className='sign-out-button'
+//onClick={(event) => {firebase.auth().signOut().then(alert('signed out'))}}>SIGN OUT</button>
+//<button onClick={(event) => {fakeData(event)}}>populate jobs</button> used for testing
 export default SignIn;

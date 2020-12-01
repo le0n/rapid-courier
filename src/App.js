@@ -30,7 +30,7 @@ const firestore = firebase.firestore();
 const App = () => {
   const [user, setUser] = useState(null);
   return (
-    <main>
+    <main className='main'>
       <Switch>
         <Route path='/' component={SignIn} exact />
         <Route path='/jobs' component={JobList} />
