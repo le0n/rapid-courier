@@ -4,6 +4,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import React, {useState} from 'react';
 import SignIn from './Components/SignIn';
+import JobList from './Components/JobList';
 
 
 const config = {
@@ -30,6 +31,7 @@ const App = () => {
   return (
     <div className="App">
       <SignIn/>
+      <JobList/>
     </div>
     
   )
