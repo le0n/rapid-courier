@@ -7,6 +7,7 @@ const SignIn = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     
+    //when the sign in button is clicked
     const signInHandler = (event, email, password) => {
         event.preventDefault();
         alert(email + password);
