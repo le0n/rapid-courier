@@ -6,16 +6,26 @@ import { getAllByDisplayValue, getSuggestedQuery } from "@testing-library/react"
 
 var jobs = ['job 1','job 2','job 3'];
 
+var jobArray = [];
 
 
-
+//https://firebase.google.com/docs/firestore/query-data/get-data#web_5
 const JobList = () => {
     const printdata = (event) => {
-        alert('printing data');
+        firebase.firestore().collection('jobs').get().then((querySnapshot) => { //this is an async method hence then()
+            querySnapshot.docs.forEach(doc => { //querySnapshot gives all data
+                console.log(doc.data()); //doc.data() for actual data and doc.id for document id (for deletion)
+            })
+        } )
     }
 
     return (
-        <button onClick={(event)=>{printdata(event)}}>JobList</button>
+        <div>
+            <button onClick={(event)=>{printdata(event)}}>Retrieve JobList</button>
+            <Jobs pickUp='test1' dropOff='test2' pay='12.40' />
+        </div>
+      
+
     )
 }
 
