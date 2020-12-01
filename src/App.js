@@ -5,7 +5,7 @@ import 'firebase/auth';
 import React, {useState} from 'react';
 import SignIn from './Components/SignIn';
 import JobList from './Components/JobList';
-import {browserRouter, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 
 const config = {
@@ -30,11 +30,12 @@ const firestore = firebase.firestore();
 const App = () => {
   const [user, setUser] = useState(null);
   return (
-    <div className="App">
-      <SignIn/>
-      <JobList/>
-    </div>
-    
+    <main>
+      <Switch>
+        <Route path='/' component={SignIn} exact />
+        <Route path='/jobs' component={JobList} />
+      </Switch>
+    </main>
   )
 }
 

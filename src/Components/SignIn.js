@@ -30,8 +30,7 @@ const SignIn = () => {
     const signInHandler = (event, email, password) => {
         event.preventDefault();
         firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-            alert('sign in success');
-            //change context
+            window.location.href= '/jobs';
         })
         .catch((error) => {
             alert(error.message);
