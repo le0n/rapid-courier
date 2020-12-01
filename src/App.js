@@ -4,7 +4,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import React, {useState} from 'react';
 import SignIn from './Components/SignIn';
-import Jobs from './Components/Jobs.js';
+
 
 const config = {
   apiKey: "AIzaSyCXqvu1j3NQ4J303SKtBAcXZ_iFz5LhUdc",
@@ -21,7 +21,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-const auth = firebase.auth();
+
 const firestore = firebase.firestore();
 
 
@@ -30,9 +30,6 @@ const App = () => {
   return (
     <div className="App">
       <SignIn/>
-      <div>
-        <Jobs pickUp='2/125 Oxlade Dr' dropOff='33-7 Townley St' pay='12.5'/>
-      </div>
     </div>
     
   )

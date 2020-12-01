@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import '../index.css';
 
+
 //SignIn component handles the sign in screen of the webapp
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -10,9 +11,8 @@ const SignIn = () => {
     //when the sign in button is clicked
     const signInHandler = (event, email, password) => {
         event.preventDefault();
-        alert(email + password);
-        //handle auth here
-    };
+        
+    }
 
     const onChangeHandler = (event) => {
         const {name, value} = event.currentTarget;
