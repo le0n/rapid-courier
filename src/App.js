@@ -5,6 +5,7 @@ import 'firebase/auth';
 import React, {useState} from 'react';
 import SignIn from './Components/SignIn';
 import JobList from './Components/JobList';
+import {browserRouter, Route, Switch} from 'react-router-dom';
 
 
 const config = {
@@ -38,11 +39,3 @@ const App = () => {
 }
 
 export default App;
-
-function Title() {
-  return (
-    <div className="Title">
-      <h1> {">"} Rapid Courier</h1>
-    </div>
-  )
-}
