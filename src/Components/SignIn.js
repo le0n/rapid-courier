@@ -12,10 +12,15 @@ const config = {
     appId: "1:724929581922:web:5fa2ed8c80b8e52498d23b",
     measurementId: "G-SN0R0SLVTZ"
   }
-
+  
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
-  }
+}
+
+const faker = require('faker');
+faker.locale = 'en_AU';
+
+
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -42,6 +47,20 @@ const SignIn = () => {
             setPassword(value);
         }
     }
+
+    const fakeData = (event) => {
+        event.preventDefault();
+        //console.log('Address: '+street+' '+city+' '+state+' '+post);
+        var batch = firebase.firestore().batch();
+        for (var count = 0; count <= 100; count++) {
+            let money = (Math.random() * 1000).toFixed(1)+'0';
+            var newEntry = firebase.firestore().collection('jobs').doc(count.toString());
+            batch.set(newEntry, {'pickUp':faker.address.streetAddress()+' '+faker.address.city()+' '+
+            faker.address.stateAbbr()+' '+faker.address.zipCodeByState('Queensland'), 'dropOff':faker.address.streetAddress()+' '+faker.address.city()+' '+
+            faker.address.stateAbbr()+' '+faker.address.zipCodeByState('Queensland'), 'pay':money});
+        }
+        batch.commit().then(alert('success'));
+    }
     
     return (
         //logic for incorrect log in details not implemented
@@ -65,6 +84,8 @@ const SignIn = () => {
 
                     <button className='sign-out-button'
                     onClick={(event) => {firebase.auth().signOut().then(alert('signed out'))}}>SIGN OUT</button>
+
+                    <button onClick={(event) => {fakeData(event)}}>populate jobs</button>
                 </form>
             </div>
         </div>
