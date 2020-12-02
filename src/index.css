@@ -50,3 +50,13 @@ button {
   text-align: center;
 }
 
+.job-list {
+  list-style-type: none;
+  background: yellow;
+}
+
+.job-item-container {
+  background: green;
+  padding: 10;
+}
+

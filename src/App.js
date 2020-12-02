@@ -2,7 +2,7 @@ import './App.css';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-import React, {useState} from 'react';
+import React from 'react';
 import SignIn from './Components/SignIn';
 import JobList from './Components/JobList';
 import {Route, Switch} from 'react-router-dom';
@@ -23,12 +23,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-
-const firestore = firebase.firestore();
-
-
 const App = () => {
-  const [user, setUser] = useState(null);
   return (
     <main className='main'>
       <Switch>
