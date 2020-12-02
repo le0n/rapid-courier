@@ -13,10 +13,13 @@ const fetchData = async () => {
 }
 const JobList = () => {
     const [jobArray, setJobArray] = useState([]);
+    const [jobNumber, setJobNumber] =useState(100);
+
     
     const executeFetchData = async () => {
         let data = await fetchData();
-        console.log(data);
+        //console.log(data);
+        setJobArray(data);
     }
     
 
@@ -26,11 +29,11 @@ const JobList = () => {
     useEffect(() => {
         //fetchData().then((data) => console.log(data));
         //setJobArray(['0',{'pickup':'111 st Oxleyu'}]);
-        console.log(executeFetchData());
-    });
+        executeFetchData();
+    }, [jobNumber]);
     return (
-        <ul>
-            {jobArray.map(job => (<li key={jobArray[0]}>{jobArray[1].pickUp}</li>))}
+        <ul className='job-list'>
+            {jobArray.map(job => (<li className='list-items' key={job[0]}>{job[1].pickUp}</li>))}
         </ul>
     )
 }
