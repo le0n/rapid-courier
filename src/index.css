@@ -2,9 +2,7 @@ body {
   margin: 0;
   background: #cdcdcd;
   display: block;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,8 +16,11 @@ button {
   display: block;
 }
 
-.signInbox {
-  background: green;
+li {
+  margin: 10px 0;
+}
+
+.signin-box {
   display: table;
   vertical-align: middle;
   justify-content: center;
@@ -29,34 +30,33 @@ button {
   justify-content: center;
 }
 
-.title {
-  background-color: aqua;
-
-}
-.signInForm {
+.signin-form {
   display: table;
   vertical-align: middle;
   text-align: center;
 
 }
 
-.signInForm * {
-  background: red;
+.signin-form * {
   justify-content: center;
 }
 
 .sign-in-button-container {
-  background: yellow;
   text-align: center;
 }
 
+
 .job-list {
   list-style-type: none;
-  background: yellow;
+  background: cdcdcd;
 }
 
 .job-item-container {
   background: green;
   padding: 10;
+}
+
+.job-card {
+  background-color: red;
 }
 
