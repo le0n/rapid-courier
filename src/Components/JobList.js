@@ -17,10 +17,10 @@ const JobList = () => {
     
     const acceptJob = (event) => {
         var jobId = event.currentTarget.value;
-        console.log('button clicked: '+jobId);
         firebase.firestore().collection('jobs').doc(jobId).delete().then(() => {
             console.log('deleted Job ID '+jobId);
             setJobNumber(jobNumber - 1);
+            console.log(jobNumber);
         }).catch((error) => {
             console.log('Error deleting document :'+error);
         });
@@ -28,7 +28,6 @@ const JobList = () => {
     
     const executeFetchData = async () => {
         let data = await fetchData();
-        //console.log(data);
         setJobArray(data); //sets jobArray to the fetched array
     }
 

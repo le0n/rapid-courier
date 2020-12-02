@@ -82,13 +82,10 @@ const SignIn = () => {
                         onClick={(event) => {signInHandler(event, email, password)}}>
                             SIGN IN</button>
                     </div>
-
                 </form>
             </div>
         </div>
     );
 };
-//<button className='sign-out-button'
-//onClick={(event) => {firebase.auth().signOut().then(alert('signed out'))}}>SIGN OUT</button>
-//<button onClick={(event) => {fakeData(event)}}>populate jobs</button> used for testing
+//<button onClick={(event) => {fakeData(event)}}>populate jobs</button>
 export default SignIn;
